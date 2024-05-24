@@ -1,14 +1,19 @@
-const productList = document.querySelector('.w-1/2.flex.flex-wrap'); // Replace with your selector for the product list
-const productFormSection = document.getElementById('productFormSection');
-const addToCartButton = document.createElement('button'); // Create button dynamically
+document.addEventListener("DOMContentLoaded", () => {
+  const productName = document.getElementById("productName");
+  const productPrice = document.getElementById("productPrice");
+  const imageURL = document.getElementById("imageURL");
+  const productBtn = document.getElementById("productBtn");
 
-addToCartButton.textContent = 'Add to Cart';
-addToCartButton.classList.add('bg-green-500', 'hover:bg-green-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded'); // Add Tailwind CSS classes
+  let productSet = [];
 
-productList.addEventListener('click', (event) => {
-  // Check if a checkbox was clicked within the product list
-  if (event.target.tagName === 'INPUT' && event.target.type === 'checkbox') {
-    // Toggle visibility of the product form
-    productFormSection.classList.toggle('hidden');
-  }
+  productBtn.addEventListener("click", () => {
+    const productCard = {
+      name: productName.value,
+      num: productPrice.value,
+      URL: imageURL.value,
+    };
+      productSet.push(productCard);
+      console.log(productSet);
+  });
+
 });
